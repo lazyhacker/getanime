@@ -28,7 +28,7 @@ type Item struct {
 
 var (
 	torrentdir = flag.String("savedir", "./", "Path to save torrent files.")
-	rssurl     = falg.String("rss", "", "RSS URL for latest torrents.")
+	rssurl     = flag.String("rss", "", "RSS URL for latest torrents.")
 )
 
 func main() {
@@ -68,14 +68,14 @@ func main() {
 		download, err := http.Get(item.Link)
 		defer download.Body.Close()
 		if err != nil {
-			log.Errorf("%d: Unable to download %s\n", c, item.Title)
+			log.Printf("%d: Unable to download %s\n", c, item.Title)
 			break
 		}
 
 		torrent, err := ioutil.ReadAll(download.Body)
 
 		if err != nil {
-			log.Errorf("%d: Error parsing body of %s\n", c, item.Title)
+			log.Printf("%d: Error parsing body of %s\n", c, item.Title)
 			break
 		}
 
@@ -85,7 +85,7 @@ func main() {
 		if _, err = os.Stat(downloadpath); os.IsNotExist(err) {
 			err = ioutil.WriteFile(downloadpath, torrent, 0644)
 			if err != nil {
-				log.Errorf("Unable to save %s\n", downloadpath)
+				log.Printf("Unable to save %s\n", downloadpath)
 			}
 		} else {
 			log.Printf("%d: %s already exists.\n", c, downloadpath)
