@@ -1,3 +1,5 @@
+// sorttorrent looks at the files in a directory and moves them into their own
+// subdirectories based on the series name.
 package main
 
 import (
@@ -28,7 +30,11 @@ func main() {
 	}
 
 	for _, file := range files {
+
+		// Ignore directories and hidden files, only look at MKV files since that's what most fansubbers are using.
 		if !file.IsDir() && !strings.HasPrefix(file.Name(), ".") && strings.HasSuffix(file.Name(), ".mkv") {
+
+			// Use parser to look at the file name and extract the title, episode #, etc.
 			tinfo, err := parsetorrentname.Parse(file.Name())
 			if err != nil {
 				log.Printf("Unable to parse file name, %v.  %v\n", file.Name(), err)
