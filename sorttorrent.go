@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	parsetorrentname "github.com/middelink/go-parse-torrent-name"
+	parsetorrentname "github.com/lazyhacker/go-parse-torrent-name"
 )
 
 var (
