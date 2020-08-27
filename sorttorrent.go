@@ -14,7 +14,7 @@ import (
 )
 
 var (
-	dir = flag.String("dir", "", "directory with torrent files")
+	dir = flag.String("dir", ".", "directory with torrent files")
 )
 
 func main() {
