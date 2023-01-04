@@ -75,6 +75,6 @@ func main() {
 func convertName(n *parsetorrentname.TorrentInfo) string {
 	//j, _ := json.MarshalIndent(tinfo, "", "\t")
 	//fmt.Printf("%v\n", string(j))
-	return fmt.Sprintf("%d - %v [%v] [%v].%v", n.Episode, n.Title, n.Website, n.Resolution, n.Container)
+	return fmt.Sprintf("%02d - %v [%v] [%v].%v", n.Episode, n.Title, n.Website, n.Resolution, n.Container)
 
 }
