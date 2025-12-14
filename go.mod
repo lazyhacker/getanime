@@ -1,4 +1,4 @@
-module sorttorrent
+module getanime
 
 go 1.19
 
