@@ -1,8 +1,11 @@
 **getanime** downloads torrent files from an RSS feed.
 
-Usage: `getanime --rss=<URL of RSS feed>`
+To download the torrents:
 
-**sorttorrent** will move a mkv file to a directory based on the name of the
-anime and rename the file to have the episode number at the start so episodes
-are played in the correct order.
+`getanime --rss=<URL of RSS feed> -savedir=<dir where torrents are>`
+
+Move the torrent files into their own series folder based on the
+torrent filename:
+
+`getanime -savedir=<dir where files are> -sort`
 
